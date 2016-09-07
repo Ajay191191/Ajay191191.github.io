@@ -2182,7 +2182,7 @@ var SecondaryToolbar = {
     // Define the toolbar buttons.
     this.toggleButton = options.toggleButton;
     this.presentationModeButton = options.presentationModeButton;
-    this.openFile = options.openFile;
+    //this.openFile = options.openFile;
     this.print = options.print;
     this.download = options.download;
     this.viewBookmark = options.viewBookmark;
@@ -2200,7 +2200,7 @@ var SecondaryToolbar = {
       // (except for toggleHandTool, hand_tool.js is responsible for it):
       { element: this.presentationModeButton,
         handler: this.presentationModeClick },
-      { element: this.openFile, handler: this.openFileClick },
+      //{ element: this.openFile, handler: this.openFileClick },
       { element: this.print, handler: this.printClick },
       { element: this.download, handler: this.downloadClick },
       { element: this.viewBookmark, handler: this.viewBookmarkClick },
@@ -2226,10 +2226,10 @@ var SecondaryToolbar = {
     this.close();
   },
 
-  openFileClick: function secondaryToolbarOpenFileClick(evt) {
+  /*openFileClick: function secondaryToolbarOpenFileClick(evt) {
     document.getElementById('fileInput').click();
     this.close();
-  },
+  },*/
 
   printClick: function secondaryToolbarPrintClick(evt) {
     window.print();
@@ -6199,7 +6199,7 @@ var PDFViewerApplication = {
       toggleButton: document.getElementById('secondaryToolbarToggle'),
       presentationModeButton:
         document.getElementById('secondaryPresentationMode'),
-      openFile: document.getElementById('secondaryOpenFile'),
+      //openFile: document.getElementById('secondaryOpenFile'),
       print: document.getElementById('secondaryPrint'),
       download: document.getElementById('secondaryDownload'),
       viewBookmark: document.getElementById('secondaryViewBookmark'),
@@ -7199,11 +7199,13 @@ function webViewerInitialized() {
   document.body.appendChild(fileInput);
 
   if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
-    document.getElementById('openFile').setAttribute('hidden', 'true');
-    document.getElementById('secondaryOpenFile').setAttribute('hidden', 'true');
+   // document.getElementById('openFile').setAttribute('hidden', 'true');
+    //document.getElementById('secondaryOpenFile').setAttribute('hidden', 'true');
   } else {
     document.getElementById('fileInput').value = null;
   }
+  //document.getElementById('openFile').setAttribute('hidden', 'true');
+  //document.getElementById('secondaryOpenFile').setAttribute('hidden', 'true');
 
   var locale = PDFJS.locale || navigator.language;
 
@@ -7375,8 +7377,8 @@ function webViewerInitialized() {
   document.getElementById('presentationMode').addEventListener('click',
     SecondaryToolbar.presentationModeClick.bind(SecondaryToolbar));
 
-  document.getElementById('openFile').addEventListener('click',
-    SecondaryToolbar.openFileClick.bind(SecondaryToolbar));
+  //document.getElementById('openFile').addEventListener('click',
+  //  SecondaryToolbar.openFileClick.bind(SecondaryToolbar));
 
   document.getElementById('print').addEventListener('click',
     SecondaryToolbar.printClick.bind(SecondaryToolbar));
